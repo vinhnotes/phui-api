@@ -1,9 +1,10 @@
 package apiv1
 
 import (
-	"github.com/gin-gonic/gin"
 	"bongdaphui/bongdaphui/api/v1.0/auth"
 	teams "bongdaphui/bongdaphui/api/v1.0/team"
+	users "bongdaphui/bongdaphui/api/v1.0/user"
+	"github.com/gin-gonic/gin"
 )
 
 func ping(c *gin.Context) {
@@ -19,5 +20,6 @@ func ApplyRoutes(r *gin.RouterGroup) {
 		v1.GET("/ping", ping)
 		auth.ApplyRoutes(v1)
 		teams.ApplyRoutes(v1)
+		users.ApplyRoutes(v1)
 	}
 }

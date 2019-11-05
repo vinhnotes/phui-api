@@ -54,7 +54,7 @@ func register(c *gin.Context) {
 	db := c.MustGet("db").(*gorm.DB)
 
 	type RequestBody struct {
-		Username    string `json:"username" binding:"required"`
+		Email       string `json:"email" binding:"required"`
 		DisplayName string `json:"display_name" binding:"required"`
 		Password    string `json:"password" binding:"required"`
 	}
@@ -67,7 +67,7 @@ func register(c *gin.Context) {
 
 	// check existancy
 	var exists User
-	if err := db.Where("username = ?", body.Username).First(&exists).Error; err == nil {
+	if err := db.Where("email = ?", body.Email).First(&exists).Error; err == nil {
 		c.AbortWithStatus(409)
 		return
 	}
@@ -80,7 +80,7 @@ func register(c *gin.Context) {
 
 	// create user
 	user := User{
-		Username:     body.Username,
+		Email:        body.Email,
 		DisplayName:  body.DisplayName,
 		PasswordHash: hash,
 	}
@@ -101,7 +101,7 @@ func register(c *gin.Context) {
 func login(c *gin.Context) {
 	db := c.MustGet("db").(*gorm.DB)
 	type RequestBody struct {
-		Username string `json:"username" binding:"required"`
+		Email    string `json:"email" binding:"required"`
 		Password string `json:"password" binding:"required"`
 	}
 
@@ -113,7 +113,7 @@ func login(c *gin.Context) {
 
 	// check existancy
 	var user User
-	if err := db.Where("username = ?", body.Username).First(&user).Error; err != nil {
+	if err := db.Where("email = ?", body.Email).First(&user).Error; err != nil {
 		c.JSON(404, common.GenerateResponse(404, "Tài khoản không tồn tại.", nil))
 		return
 	}
