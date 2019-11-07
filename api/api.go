@@ -1,7 +1,7 @@
 package api
 
 import (
-	apiv1 "bongdaphui/bongdaphui/api/v1.0"
+	apiv1 "bongdaphui/api/v1.0"
 	"github.com/gin-gonic/gin"
 )
 

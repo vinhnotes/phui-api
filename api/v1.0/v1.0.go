@@ -1,9 +1,9 @@
 package apiv1
 
 import (
-	"bongdaphui/bongdaphui/api/v1.0/auth"
-	teams "bongdaphui/bongdaphui/api/v1.0/team"
-	users "bongdaphui/bongdaphui/api/v1.0/user"
+	"bongdaphui/api/v1.0/auth"
+	teams "bongdaphui/api/v1.0/team"
+	users "bongdaphui/api/v1.0/user"
 	"github.com/gin-gonic/gin"
 )
 

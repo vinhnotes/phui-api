@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"bongdaphui/bongdaphui/database/models"
-	"bongdaphui/bongdaphui/lib/common"
+	"bongdaphui/database/models"
+	"bongdaphui/lib/common"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

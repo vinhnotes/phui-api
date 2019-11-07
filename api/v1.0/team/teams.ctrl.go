@@ -1,8 +1,8 @@
 package teams
 
 import (
-	"bongdaphui/bongdaphui/database/models"
-	"bongdaphui/bongdaphui/lib/common"
+	"bongdaphui/database/models"
+	"bongdaphui/lib/common"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"

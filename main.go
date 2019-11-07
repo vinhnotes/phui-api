@@ -1,9 +1,9 @@
 package main
 
 import (
-	"bongdaphui/bongdaphui/api"
-	"bongdaphui/bongdaphui/database"
-	"bongdaphui/bongdaphui/lib/middlewares"
+	"bongdaphui/api"
+	"bongdaphui/database"
+	"bongdaphui/lib/middlewares"
 	"os"
 
 	"github.com/gin-gonic/gin"

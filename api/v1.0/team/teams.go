@@ -1,7 +1,7 @@
 package teams
 
 import (
-	"bongdaphui/bongdaphui/lib/middlewares"
+	"bongdaphui/lib/middlewares"
 
 	"github.com/gin-gonic/gin"
 )

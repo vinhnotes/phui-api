@@ -1,7 +1,7 @@
 package models
 
 import (
-	"bongdaphui/bongdaphui/lib/common"
+	"bongdaphui/lib/common"
 
 	"github.com/jinzhu/gorm"
 )
