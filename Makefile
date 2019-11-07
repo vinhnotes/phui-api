@@ -1,35 +1,34 @@
-# Go parameters
-GOCMD=go
-GOBUILD=$(GOCMD) build
-GOCLEAN=$(GOCMD) clean
-GOTEST=$(GOCMD) test
-GOGET=$(GOCMD) get
-BINARY_NAME=bongdaphui
-BINARY_UNIX=$(BINARY_NAME)_unix
+GOCMD := go
+GOBUILD := $(GOCMD) build
+GOCLEAN := $(GOCMD) clean
+GOTEST := $(GOCMD) test
+GOGET := $(GOCMD) get
+BINARY_NAME := bongdaphui
+BINARY_UNIX := $(BINARY_NAME)_unix
 
 all: test build
 
 build:
-    $(GOBUILD) -o $(BINARY_NAME) -v
+	$(GOBUILD) -o $(BINARY_NAME) -v
 
 test:
-    $(GOTEST) -v ./...
+	$(GOTEST) -v ./...
 
 clean:
-    $(GOCLEAN)
-    rm -f $(BINARY_NAME)
-    rm -f $(BINARY_UNIX)
+	$(GOCLEAN)
+	rm -f $(BINARY_NAME)
+	rm -f $(BINARY_UNIX)
 
 run:
-    $(GOBUILD) -o $(BINARY_NAME) -v ./...
-    ./$(BINARY_NAME)
+	$(GOBUILD) -o $(BINARY_NAME) -v
+	./$(BINARY_NAME)
 
 deps:
-    $(GOGET) github.com/gin-gonic/gin
+	$(GOGET) github.com/gin-gonic/gin
 
+# Cross build
+linux-build:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_UNIX) -v
 
-# Cross compilation
-build-linux:
-    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_UNIX) -v
 docker-build:
-    docker run --rm -it -v "$(GOPATH)":/go -w /go/src/github.com/whatsltd4us/bongdaphui golang:latest go build -o "$(BINARY_UNIX)" -v
+	docker run --rm -it -v "$(GOPATH)":/go -w /go/src/github.com/whatsltd4us/bongdaphui golang:latest go build -o "$(BINARY_UNIX)" -v
