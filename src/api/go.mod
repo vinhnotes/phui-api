@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/0xAX/notificator v0.0.0-20191016112426-3962a5ea8da1 // indirect
+	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
 	github.com/codegangsta/envy v0.0.0-20141216192214-4b78388c8ce4 // indirect
 	github.com/codegangsta/gin v0.0.0-20171026143024-cafe2ce98974 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -12,6 +13,9 @@ require (
 	github.com/joho/godotenv v1.3.0
 	github.com/mattn/go-shellwords v1.0.6 // indirect
 	github.com/stretchr/testify v1.3.0
+	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
+	github.com/swaggo/gin-swagger v1.2.0
+	github.com/swaggo/swag v1.5.1
 	github.com/unknwon/com v1.0.1
 	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c
 )
