@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    links:
+      - mysql
+    build: 
+      context: . 
+      dockerfile: ./docker/api/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/api:/go/src/api
+  mysql:
+    build: ./docker/db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: bongdaphui
+    hostname: mysql
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./docker/db/conf.d:/etc/mysql/conf.d
+      - ./log/mysql:/var/log/mysql
